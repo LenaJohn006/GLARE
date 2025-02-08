@@ -5,19 +5,23 @@ import { motion } from "framer-motion";
 
 const SophiaLearn = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 p-8 text-white">
-      <motion.h1 
-        className="text-5xl font-extrabold text-center mb-8 drop-shadow-lg"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+    <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 text-white">
+      <header className="p-6 bg-purple-700 shadow-lg text-center text-3xl font-bold">
         SophiaLearn: The Wisdom Hub
-      </motion.h1>
+      </header>
 
-      <p className="text-lg text-center mb-6">A vibrant learning platform for students of all classes.</p>
+      <nav className="flex justify-center space-x-6 bg-purple-600 p-4">
+        <a href="#about" className="hover:underline">About</a>
+        <a href="#services" className="hover:underline">Services</a>
+        <a href="#contact" className="hover:underline">Contact</a>
+      </nav>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section id="about" className="p-10 text-center">
+        <h2 className="text-4xl font-semibold mb-4">Welcome to SophiaLearn</h2>
+        <p className="text-lg">A vibrant learning platform for students of all classes, offering personalized tutoring, homework help, and exam preparation.</p>
+      </section>
+
+      <section id="services" className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
         <motion.div whileHover={{ scale: 1.05 }}>
           <Card className="bg-white text-black rounded-2xl shadow-xl p-6 border-l-8 border-blue-500">
             <CardContent>
@@ -47,7 +51,11 @@ const SophiaLearn = () => {
             </CardContent>
           </Card>
         </motion.div>
-      </div>
+      </section>
+
+      <footer id="contact" className="bg-purple-700 p-6 text-center">
+        <p>Contact us at <a href="mailto:info@sophialearn.com" className="underline">info@sophialearn.com</a></p>
+      </footer>
     </div>
   );
 };
