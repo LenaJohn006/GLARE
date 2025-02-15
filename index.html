@@ -1,26 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching Assistance</title>
-</head>
-<body>
-    <div>
-        <h1>Welcome to Teaching Assistance</h1>
-        <p>Your online guide for learning and support.</p>
-        
-        <h2>Contact Us</h2>
-        <p>Email: support@teachingassist.com</p>
-        <p>Phone: +123 456 7890</p>
-        
-        <div>
-            <h3>Quick Quiz</h3>
-            <p>What is 5 + 3?</p>
-            <input type="number" placeholder="Enter answer">
-            <button>Submit</button>
-            <p></p>
-        </div>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
+
+const foodItems = [
+  { id: 1, name: "Pizza Margherita", price: "$12", image: "https://source.unsplash.com/200x200/?pizza" },
+  { id: 2, name: "Sushi Platter", price: "$18", image: "https://source.unsplash.com/200x200/?sushi" },
+  { id: 3, name: "Burger Deluxe", price: "$10", image: "https://source.unsplash.com/200x200/?burger" },
+];
+
+export default function FoodDelivery() {
+  return (
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold text-center mb-6">Delicious Food Delivered to You</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {foodItems.map((item) => (
+          <Card key={item.id} className="shadow-lg rounded-xl overflow-hidden">
+            <img src={item.image} alt={item.name} className="w-full h-48 object-cover" />
+            <CardContent className="p-4">
+              <h2 className="text-xl font-semibold">{item.name}</h2>
+              <p className="text-gray-600">{item.price}</p>
+              <Button className="mt-2 w-full flex items-center justify-center gap-2">
+                <ShoppingCart size={16} /> Order Now
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
-</body>
-</html>
+  );
+}
